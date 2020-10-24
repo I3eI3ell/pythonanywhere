@@ -15,37 +15,31 @@ Licence URI: https://www.os-templates.com/template-terms
 <link href="static/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
+
 <div class="wrapper row1">
   <header id="header" class="hoc clear">
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
-      <h1><a href="/">See Anime</a></h1>
+      <h1><a href="index.html">See Anime</a></h1>
     </div>
     <nav id="mainav" class="fl_right">
       <ul class="clear">
         <li class="active"><a href="index.html">Home</a></li>
         <li><a class="drop" href="#">Category</a>
-        <li><a href="/anime">Anime</a></li>
           <ul>
-            <li><a href="/anime">Anime</a></li>
-            <li><a href="/thaidubbing">Thai Dubbing</a></li>
+            <li><a href="Category/all anime.html">Anime</a></li>
+            <li><a href="Category/thai dubbing.html">Thai Dubbing</a></li>
             <li><a href="Category/thai subtitles.html">Thai Subtitles</a></li>
           </ul>
         </li>
         <li><a href="#">Contact</a></li>
-        <li><a href="/Login">Longin</a></li>
-        <h3> Welcome  {{user.username}} </h3>
+        <li><a href="/Login">Lognin</a></li>
       </ul>
     </nav>
-    <!-- ################################################################################################ -->
+
   </header>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
+
 <div class="wrapper bgded overlay" style="background-image:url('static/images/demo/backgrounds/baymax-big-hero-6-1n-1920x1080.jpg');">
   <div id="pageintro" class="hoc clear">
     <!-- ################################################################################################ -->
@@ -62,14 +56,46 @@ Licence URI: https://www.os-templates.com/template-terms
     <br>
   </div>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 
+{% block title %}<h3>Register</h3>{% endblock %}
+  <!-- Main Content -->
+  {% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button style="background-color:#6a0000; color:white" class="btn btn-outline-info" type="submit">Sign Up</button>
+            </form>
+            <br>
+            If you already have an account <a href="/Login" target="blank"><strong>Login</strong></a> instead.
+            {% if messages %}
+                {% for message in messages %}
+                  <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
+                {% endfor %}
+            {% endif %}
+                {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'success'%}
+                            <script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>
+                        {% elif message.tags == 'info'%}
+                            <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
+                        {% elif message.tags == 'warning'%}
+                            <script>M.toast({html: "{{message}}", classes: 'orange rounded', displayLength:10000});</script>
+                        {% elif message.tags == 'error'%}
+                            <script>M.toast({html: "{{message}}", classes: 'red rounded', displayLength:10000});</script>
+                    {% endif %}
+                {% endfor %}
+    {% endif %}
+        </div></div></div></div>
+    {% endblock %}
 <div class="wrapper row5">
   <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
-    <p class="fl_left"><center>Nuttapon.ku,62@ubu.ac.th</center></p>
+    <p class="fl_left">Nuttapon.ku.62@ubu.ac.th</p>
     <!-- ################################################################################################ -->
   </div>
 </div>
@@ -78,7 +104,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
-<script -src="static/layout/scripts/jquery.min.js"></script>
+<script src="static/layout/scripts/jquery.min.js"></script>
 <script src="static/layout/scripts/jquery.backtotop.js"></script>
 <script src="static/layout/scripts/jquery.mobilemenu.js"></script>
 <script src="static/layout/scripts/jquery.flexslider-min.js"></script>
