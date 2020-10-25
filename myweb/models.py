@@ -15,3 +15,10 @@ class Choice(models.Model):
 
     def __str__(self):
         return f'{self.question.question_text} - {self.choice_text} - {self.votes}'
+
+class inputanime2(models.Model):
+    img = models.CharField(max_length=200)
+    animename = models.CharField(max_length=200)
+    link = models.CharField(max_length=1000)
+    def __str__(self):
+        return f'{self.img} - {self.animename} - {self.link}'

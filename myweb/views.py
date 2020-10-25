@@ -11,6 +11,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.http import Http404
+from .models import inputanime2
 
 
 # Create your views here.
@@ -32,14 +33,22 @@ def vote(request, question_id):
 def Login(req):
     return render(req, 'myweb/Login.html')
 
+def Logout(req):
+    logout(req)
+    return redirect("/")
+
 def Register(req):
     return render(req, 'myweb/Register.html')
 
 def anime(req):
     return render(req, 'myweb/anime.html')
 
-def ThaiDubbing(req):
-    return render(req, 'myweb/ThaiDubbing.html')
+def anime1(req):
+    return render(req, 'myweb/anime1.html')
+
+def anime2(req):
+    inputanime2s = inputanime2.objects.all()
+    return render(req, 'myweb/anime2.html', {'inputanime2s': inputanime2s})
 
 def Register(req):
     if req.method == "POST":
@@ -83,7 +92,19 @@ def Login(req):
                   template_name = "myweb/Login.html",
                   context={"form":form})
 
-def logout(req):
-    logout(req)
-    messages.info(req, "Logged out successfully!")
-    return redirect("/")
+def insertmovie(request):
+    if request.method == 'POST':
+        img = request.POST.get("img")
+        animename = request.POST.get("animename")
+        link = request.POST.get("link")
+        add = inputanime2(img=img,animename=animename,link=link)
+        add.save()
+        return redirect('/anime2/')
+    return render(request, 'myweb/insertmovie.html')
+
+def insertmovies(req):
+    inputanime2s = inputanime2.objects.all()
+    ins = {
+        'inputanime2s' : inputanime2s
+        }
+    return render(req, 'myweb/insertmovie.html', ins)

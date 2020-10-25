@@ -14,7 +14,7 @@ body, html {
 .bgimg {
   background-position: center;
   background-size: cover;
-  background-image: url("static/images/1.jpg");
+  background-image: url("/static/images/1.jpg");
   min-height: 75%;
 }
 
@@ -28,7 +28,7 @@ body, html {
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">
     <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+      <a href="/" class="w3-button w3-block w3-black">HOME</a>
     </div>
     <div class="w3-col s3">
       <a href="/anime/" class="w3-button w3-block w3-black">ซับไทย</a>
@@ -39,31 +39,20 @@ body, html {
     <div class="w3-col s3">
       <a href="/anime2/" class="w3-button w3-block w3-black">อนิเมะทั้งหมด</a>
     </div>
-     {% if user.is_authenticated %}
-    <div class="w3-col s3">
-        <a href="Logout" class="w3-button w3-block w3-black">Logout</a>
-    </div>
-    {% else %}
     <div class="w3-col s3">
         <a href="Login" class="w3-button w3-block w3-black">Login</a>
     </div>
-    {% endif %}
     <div class="w3-col s3">
-        <a href="#" class="w3-button w3-block w3-black">Hi! {{user}}</a>
-    </div>
-    <div class="w3-col s3">
-        <a href="/insertmovie/" class="w3-button w3-block w3-black">insertmovie</a>
+        <a href="/contact/" class="w3-button w3-block w3-black">Contact</a>
     </div>
   </div>
 </div>
 
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-
   <div class="w3-display-middle w3-center">
-    <span class="w3-text-white" style="font-size:90px">Welcome to the <br>anime world</span>
+    <span class="w3-text-white" style="font-size:40px">Facebook <br><a href="https://www.facebook.com/nuttapon.kudsombut"> Nuttapon kudsombut</a></span>
   </div>
-
 </header>
 
 <!-- Add a background color and large text to the whole page -->

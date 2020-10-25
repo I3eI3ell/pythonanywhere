@@ -10,14 +10,6 @@ body, html {
   height: 100%;
   font-family: "Inconsolata", sans-serif;
 }
-
-.bgimg {
-  background-position: center;
-  background-size: cover;
-  background-image: url("static/images/1.jpg");
-  min-height: 75%;
-}
-
 .menu {
   display: none;
 }
@@ -28,7 +20,7 @@ body, html {
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">
     <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+      <a href="/" class="w3-button w3-block w3-black">HOME</a>
     </div>
     <div class="w3-col s3">
       <a href="/anime/" class="w3-button w3-block w3-black">ซับไทย</a>
@@ -39,17 +31,8 @@ body, html {
     <div class="w3-col s3">
       <a href="/anime2/" class="w3-button w3-block w3-black">อนิเมะทั้งหมด</a>
     </div>
-     {% if user.is_authenticated %}
     <div class="w3-col s3">
-        <a href="Logout" class="w3-button w3-block w3-black">Logout</a>
-    </div>
-    {% else %}
-    <div class="w3-col s3">
-        <a href="Login" class="w3-button w3-block w3-black">Login</a>
-    </div>
-    {% endif %}
-    <div class="w3-col s3">
-        <a href="#" class="w3-button w3-block w3-black">Hi! {{user}}</a>
+        <a href="/login" class="w3-button w3-block w3-black">Login</a>
     </div>
     <div class="w3-col s3">
         <a href="/insertmovie/" class="w3-button w3-block w3-black">insertmovie</a>
@@ -57,27 +40,16 @@ body, html {
   </div>
 </div>
 
-<!-- Header with image -->
-<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+<div class="w3-sand w3-grayscale"><br><br><br><br><br><br>
+    <h2>เพิ่ม<em>อนิเมะ</em></h2>
 
-  <div class="w3-display-middle w3-center">
-    <span class="w3-text-white" style="font-size:90px">Welcome to the <br>anime world</span>
-  </div>
-
-</header>
-
-<!-- Add a background color and large text to the whole page -->
-<div class="w3-sand w3-grayscale w3-large">
-
-<!-- About Container -->
-<div class="w3-container" id="about">
-  <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Nuttapon.ku.62@ubu.ac.th</span></h5>
-
-
-<!-- Footer -->
-
-
+            <form method="POST">
+                {% csrf_token %}
+                Img : <input type="text" name="img"><br><br>
+                ชื่ออนิเมะ : <input type="text" name="animename"><br><br>
+                LinkAnime : <input type="text" name="link"><br><br>
+                <input type="submit">
+            </form>
 <script>
 // Tabbed Menu
 function openMenu(evt, menuName) {

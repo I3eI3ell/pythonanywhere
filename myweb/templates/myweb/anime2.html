@@ -39,16 +39,14 @@ body, html {
     <div class="w3-col s3">
         <a href="login.html" class="w3-button w3-block w3-black">Login</a>
     </div>
-    <div class="w3-col s3">
-        <a href="/insertmovie/" class="w3-button w3-block w3-black">insertmovie</a>
+    <div class="w3-col s3"><a href="/insertmovie/ " class="w3-button w3-block w3-black">insertmovie</a>
     </div>
   </div>
 </div>
 <br><br><br><br>
 <div class="w3-container w3-teal">
-    <h1>ซับไทย</h1>
-  </div>
-
+    <h1>อนิเมะทั้งหมด</h1>
+  </div
   <div class="w3-row-padding w3-margin-top">
     <div class="w3-third">
       <div class="w3-card">
@@ -88,7 +86,6 @@ body, html {
         </div>
       </div>
     </div>
-
     <div class="w3-third">
       <div class="w3-card">
         <img src="/static/images/7.jpg" style="width:100%">
@@ -106,14 +103,42 @@ body, html {
         </div>
       </div>
     </div>
+    <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third">
+          <div class="w3-card">
+            <img src="/static/images/2.jpg" style="width:100%">
+            <div class="w3-container">
+              <h5><a href="https://www.anime-sugoi.com/1869/"> Infinite Stratos ปฏิบัติการรักจักรกลทะยานฟ้า</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="w3-third">
+      <div class="w3-card">
+        <img src="/static/images/9.jpg" style="width:100%">
+        <div class="w3-container">
+          <h5><a href="https://www.anime-sugoi.com/1754/"> Let's & Go นักซิ่งสายฟ้า</a></h5>
+        </div>
+      </div>
   </div>
-
-
-
-
-
-
-
+  <div class="w3-third">
+    <div class="w3-card">
+      <img src="/static/images/10.jpg"style="width:100%">
+      <div class="w3-container">
+        <h5><a href="https://www.anime-sugoi.com/404/"> Blood Lad แวมไพร์พันธุ์ลุย</a></h5>
+      </div>
+    </div>
+  </div>
+    {% for a in inputanime2s %}
+    <div class="w3-third">
+    <div class="w3-card">
+      <img src="{{a.img}}">
+      <div class="w3-container">
+        <h5><a href="{{a.link}}">{{a.animename}}</a></h5>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 <script>
 // Tabbed Menu
 function openMenu(evt, menuName) {
